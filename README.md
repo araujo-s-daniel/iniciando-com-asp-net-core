@@ -1,2 +1,2 @@
-# iniciando-com-asp-net-core
+# Iniciando com ASP.NET Core
 Exemplos do curso "Iniciando com ASP.NET Core"
