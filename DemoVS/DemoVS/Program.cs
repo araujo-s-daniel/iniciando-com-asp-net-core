@@ -1,10 +1,14 @@
-// Configuração do Builder
-
 using DemoVS;
+using Serilog;
+
+// Configuração do Builder
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuração do Pipeline
+
+builder.AddSerilog();
+builder.Services.AddControllersWithViews();
 
 // Middleware
 // Services
@@ -15,7 +19,7 @@ var app = builder.Build();
 
 // Configuração de Comportamentos da App
 
-app.UseMiddleware<LogTempoMiddleware>();
+app.UseLogTempo();
 
 app.MapGet("/", () => "Hello World!");
 app.MapGet("/teste", () =>

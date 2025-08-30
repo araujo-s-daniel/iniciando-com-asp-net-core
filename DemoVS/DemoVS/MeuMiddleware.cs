@@ -40,4 +40,20 @@ namespace DemoVS
             Log.Information($"A execução demorou: {sw.ElapsedMilliseconds} ms ({sw.Elapsed.TotalSeconds}) segundos");
         }
     }
+
+    public static class SerilogExtensions
+    {
+        public static void AddSerilog(this WebApplicationBuilder builder)
+        {
+            builder.Host.UseSerilog();
+        }
+    }
+
+    public static class LogTempoMiddlewareExtensions
+    {
+        public static void UseLogTempo(this WebApplication app)
+        {
+            app.UseMiddleware<LogTempoMiddleware>();
+        }
+    }
 }
